@@ -18,13 +18,15 @@ type RegisterReply struct {
 	Message   string
 }
 
-type ReportArgs struct{}
+type AskForTaskArgs struct {
+	Status WorkerStatus
+}
 
-type ReportReply struct{}
-
-type AskForTaskArgs struct{}
-
-type AskForTaskReply struct{}
+type AskForTaskReply struct {
+	Code    int
+	Message string
+	Task    Task
+}
 
 // Cook up a unique-ish UNIX-domain socket name
 // in /var/tmp, for the coordinator.
